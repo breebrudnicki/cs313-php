@@ -12,6 +12,6 @@
                 <li><a 
                         <?php if ($page=="assignments") {
                     echo 'class="active"';
-                }?>href="/assignments.php">Assignments</a></li>
+                }?> href="/assignments.php">Assignments</a></li>
             </ul>
         </nav>
