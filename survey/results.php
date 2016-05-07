@@ -73,16 +73,16 @@ foreach ($results as $r) :
 //find div width for final
 $totalfin = $finres1 + $finres2 + $finres3;
 for ($i = 1; $i < 4; $i++) {
-    ${"f" . $i . "div"} = ${"finres" . $i} / $totalfin * 300; //width
-    ${"f" . $i . "per"} = ${"finres" . $i} / $totalfin * 100; //percent
+    ${"f" . $i . "div"} = round(${"finres" . $i} / $totalfin * 300); //width
+    ${"f" . $i . "per"} = round(${"finres" . $i} / $totalfin * 100); //percent
 }
 //find div width for individual questions
 //loop through all 5 questions (0-4)
 for ($i = 0; $i < 5; $i++) {
     ${"totalq" . $i} = ${"q" . $i . "res1"} + ${"q" . $i . "res2"} + ${"q" . $i . "res3"};
     for ($j = 1; $j < 4; $j++) {
-        ${"q" . $i . "_" . $j . "div"} = ${"finres" . $j} / $totalfin * 300; //width
-        ${"q" . $i . "_" . $j . "per"} = ${"finres" . $j} / $totalfin * 100; //percent
+        ${"q" . $i . "_" . $j . "div"} = round(${"finres" . $j} / $totalfin * 300); //width
+        ${"q" . $i . "_" . $j . "per"} = round(${"finres" . $j} / $totalfin * 100); //percent
     }
 }
 ?>
@@ -109,7 +109,7 @@ for ($i = 0; $i < 5; $i++) {
                                     <?php
                 //begin if took quiz
                 if (isset($_SESSION['tookQuiz']) && $_SESSION['tookQuiz'] == true) {
-                    $_SESSION['name'] = $name
+                    $name = $_SESSION['name']
                     ?>
                                         <h3><?php echo $name; ?>, here are your results!</h3>
 
