@@ -1,0 +1,98 @@
+.surveyimg {
+    margin: auto;
+    margin-bottom: 70px;
+}
+
+.quiz {
+    font-size: 2em;
+    font-weight: lighter;
+    font-family: helvetica, sans-serif;
+}
+
+h2 {
+    color: #27aae1;
+}
+
+label {
+    font-family: georgia, garamond, serif;
+    color: #555;
+    font-size: 20px;
+}
+
+.last {
+    margin-bottom: 70px;
+}
+
+.results {
+    display: inline-block;
+}
+
+p.results {
+    font-size: 18px;
+    width: 300px;
+}
+
+div.results {
+    height: 18px;
+    background-color: #27aae1;
+}
+
+.survey {
+    padding: 5px 15px;
+    background: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    border-color: #27aae1;
+    color: #27aae1;
+}
+
+.survey:hover {
+    padding: 5px 15px;
+    background: #27aae1;
+    cursor: pointer;
+    border-radius: 5px;
+    border-color: #fff;
+    color: #fff;
+}
+
+.button:visited {
+    padding: 5px 15px;
+    background: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    border-color: #27aae1;
+    color: #27aae1;
+    border-style: solid;
+    border-width: 3px;
+    margin-bottom: 30px;
+}
+
+.button {
+    padding: 5px 15px;
+    background-color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    border-color: #27aae1;
+    color: #27aae1;
+    text-decoration: none;
+    border-style: solid;
+    border-width: 3px;
+    margin-bottom: 30px;
+}
+
+.button:hover {
+    padding: 5px 15px;
+    background: #27aae1;
+    cursor: pointer;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 5px;
+    border-color: #fff;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+.top {
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
