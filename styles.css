@@ -100,6 +100,10 @@ nav li {
     border-right: 1px solid #fff;
 }
 
+.right {
+    float: right;
+}
+
 
 /******FOOTER*********/
 
@@ -135,4 +139,24 @@ a:hover {
 
 a:visited {
     color: #00a651;
+}
+
+//buttons
+.button {
+    padding: 5px 15px;
+    background: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    border-color: #27aae1;
+    color: #27aae1;
+}
+
+.button:hover {
+    padding: 5px 15px;
+    background: #27aae1;
+    cursor: pointer;
+    border-radius: 5px;
+    border-color: #fff;
+    color: #fff;
+    cursor: pointer;
 }
