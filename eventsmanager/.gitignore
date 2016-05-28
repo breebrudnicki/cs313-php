@@ -1,3 +1,3 @@
 localdb.php
 model/setLocalDatabaseCredentials.php
-model/databse.php
+model/database.php
