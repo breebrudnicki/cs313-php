@@ -1,5 +1,5 @@
 <?php
-require_once 'database.php';
+require_once 'model/database.php';
 $db = loadDatabase(); 
 //modular functions
 
