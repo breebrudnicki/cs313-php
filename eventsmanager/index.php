@@ -69,7 +69,7 @@ if (isset($_SESSION['loggedin'])) {
             } elseif ($email.length > 100) {
                 $createmessage = "Email cannot be greater than 100 characters";
                 include 'views/login.php';
-                exit; }
+                exit; 
 //            } elseif (preg_match($pw_pattern, $password)) { //use pregmatch
 //                $createmessage = "Password must be between 8 and 20 characters, include one capital letter, one number, and one special character.";
 //                include 'views/login.php';
