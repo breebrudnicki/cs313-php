@@ -22,7 +22,7 @@ function loadDatabase()
      { 
           // In the openshift environment
           //echo "Using openshift credentials: ";
-          require("setRemoteDatabaseCredentials.php");
+          //require("setLocalDatabaseCredentials.php");
           $dbHost = getenv('OPENSHIFT_MYSQL_DB_HOST');
           $dbPort = getenv('OPENSHIFT_MYSQL_DB_PORT'); 
           $dbUser = getenv('OPENSHIFT_MYSQL_DB_USERNAME');
