@@ -1,5 +1,6 @@
 <?php
 require_once 'database.php';
+$db = loadDatabase(); 
 //modular functions
 
 //function to get user information for login

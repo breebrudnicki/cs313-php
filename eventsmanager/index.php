@@ -2,7 +2,7 @@
 
 $page = "eventsManager";
 session_start();
-require_once 'sql.php';
+require_once 'model/sql.php';
 
 if (filter_input(INPUT_GET, 'button')) {
     $button = filter_input(INPUT_GET, 'button');

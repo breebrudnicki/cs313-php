@@ -2,7 +2,7 @@
 
 $page = "eventsManager";
 session_start();
-require_once 'sql.php';
+require_once 'model/sql.php';
 //events control page
 if (!isset($_SESSION['loggedin'])) {
     //redirect to the login page
