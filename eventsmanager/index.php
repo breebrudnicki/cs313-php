@@ -3,6 +3,7 @@
 $page = "eventsManager";
 session_start();
 require_once 'model/sql.php';
+require "password.php";
 
 if (filter_input(INPUT_GET, 'button')) {
     $button = filter_input(INPUT_GET, 'button');
