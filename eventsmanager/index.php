@@ -4,10 +4,10 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+
 $page = "eventsManager";
 session_start();
 require_once 'model/sql.php';
-require "model/password.php";
 
 if (filter_input(INPUT_GET, 'button')) {
     $button = filter_input(INPUT_GET, 'button');
@@ -18,7 +18,15 @@ if (filter_input(INPUT_GET, 'button')) {
 if (isset($_SESSION['loggedin'])) {
     $userId = $_SESSION['userId'];
     $events = displayEvents($userId);
-    include 'views/events.php';
+    switch ($button) {
+        case 'create event':
+            include 'views/createevent.php';
+            exit;
+            break;
+        default: 
+            include 'views/events.php';
+            break;
+    }
 } else {
     switch ($button) {
         case 'login':
@@ -41,6 +49,7 @@ if (isset($_SESSION['loggedin'])) {
                 $userId = $_SESSION['userId'];
                 $events = displayEvents($userId);
                 include 'views/events.php';
+                exit;
             } else {
                 //the password does not match, login failed
                 $loginmessage = 'Please check your credentials and try again';
@@ -71,19 +80,19 @@ if (isset($_SESSION['loggedin'])) {
                 $createmessage = "All fields are required, please don't leave anything blank.";
                 include 'views/login.php';
                 exit;
-            } elseif ($email.length > 100) {
+            } elseif (strlen($email) > 100) {
                 $createmessage = "Email cannot be greater than 100 characters";
                 include 'views/login.php';
-                exit; 
-//            } elseif (preg_match($pw_pattern, $password)) { //use pregmatch
-//                $createmessage = "Password must be between 8 and 20 characters, include one capital letter, one number, and one special character.";
-//                include 'views/login.php';
-//                exit;
-            } elseif ($firstName.length > 35) {
+                exit;
+            } elseif (preg_match($pw_pattern, $password)) { //use pregmatch
+                $createmessage = "Password must be between 8 and 20 characters, include one capital letter, one number, and one special character.";
+                include 'views/login.php';
+                exit;
+            } elseif (strlen($firstName) > 35) {
                 $createmessage = "Name cannot be greater than 35 characters";
                 include 'views/login.php';
                 exit;
-            } elseif ($lastName.length > 35) {
+            } elseif (strlen($lastName) > 35) {
                 $createmessage = "Name cannot be greater than 35 characters";
                 include 'views/login.php';
                 exit;
@@ -98,6 +107,7 @@ if (isset($_SESSION['loggedin'])) {
                     $userId = $_SESSION['userId'];
                     $events = displayEvents($userId);
                     include 'views/events.php';
+                    exit;
                 } else {
                     $createmessage = "We're sorry, $firstName , but there was an error creating your account.";
                 }
@@ -105,5 +115,6 @@ if (isset($_SESSION['loggedin'])) {
             break;
         default:
             include 'views/login.php';
+            exit;
     }
 }
