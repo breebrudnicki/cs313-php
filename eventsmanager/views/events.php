@@ -28,7 +28,19 @@ $name = $_SESSION['firstName'];
             <h2>Hi, <?php echo $name;?>! Welcome to your events manager.</h2>
             <?php if ($events == null) : ?>
                 <p>It doesn't look like you have any events, why don't you create one?</p>
+                <form action="index.php" method="get">
+                    <fieldset>
+                        <label>&nbsp;</label>
+                        <input type="submit" name="button" value="create event">
+                    </fieldset>
+                </form>
                 <?php else : ?>
+                    <form action="index.php" method="get">
+                        <fieldset>
+                            <label>&nbsp;</label>
+                            <input type="submit" name="button" value="create event">
+                        </fieldset>
+                    </form>
                     <table>
                         <tr>
                             <th>Event</th>

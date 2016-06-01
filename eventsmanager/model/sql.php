@@ -87,3 +87,22 @@ function getNotes($eventId) {
     $stmt->closeCursor();
     return $notes;
 }
+
+//function to add an event
+function addEvent($eventName, $description, $date, $userId) {
+        global $db;
+    $query = "INSERT INTO events
+          (eventName, description, date, userId)
+          VALUES
+          (:eventName, :description, :date, :userId)";
+    $statement = $db->prepare($query);
+    $statement->bindValue(':eventName', $eventName);
+    $statement->bindValue(':description', $description);
+    $statement->bindValue(':date', $date);
+    $statement->bindValue(':userId', $userId);
+    $statement->execute();
+    //$result = $statement->rowCount();
+    $insertId = $db->lastInsertId();
+    $statement->closeCursor();
+    return $insertId;
+}
