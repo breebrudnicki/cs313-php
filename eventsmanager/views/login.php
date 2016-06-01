@@ -53,15 +53,15 @@ session_start();
                         <fieldset>
                             <label for='firstName'>First Name</label>
                             <br>
-                            <input type='text' name='firstName' id='firstName' required value="<?php echo $firstName?>">
+                            <input type='text' name='firstName' id='firstName' required value="<?php if (isset($firstName)) {echo $firstName}?>">
                             <br>
                             <label for='lastName'>Last Name</label>
                             <br>
-                            <input type='text' name='lastName' id='lastName' required value="<?php echo $lastName?>">
+                            <input type='text' name='lastName' id='lastName' required value="<?php if (isset($lastName)) {echo $lastName}?>">
                             <br>
                             <label for="email">Email</label>
                             <br>
-                            <input type="email" name="email" id="email" required placeholder="email@domain.com" value="<?php echo $email?>">
+                            <input type="email" name="email" id="email" required placeholder="email@domain.com" value="<?php if (isset($email)) {echo $email}?>">
                             <br>
                             <label>Create a Password</label>
                             <br>
