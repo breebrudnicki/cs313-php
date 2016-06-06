@@ -8,6 +8,7 @@ error_reporting(E_ALL);
 $page = "eventsManager";
 session_start();
 require_once 'model/sql.php';
+require 'model/password.php';
 
 if (filter_input(INPUT_GET, 'button')) {
     $button = filter_input(INPUT_GET, 'button');
