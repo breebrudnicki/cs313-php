@@ -4,7 +4,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-require 'model/password.php';
+
 $page = "eventsManager";
 session_start();
 require_once 'model/sql.php';
@@ -17,13 +17,21 @@ if (filter_input(INPUT_GET, 'button')) {
 
 if (isset($_SESSION['loggedin'])) {
     $userId = $_SESSION['userId'];
-    $events = displayEvents($userId);
     switch ($button) {
         case 'create event':
+            $events = displayEvents($userId);
             include 'views/createevent.php';
             exit;
             break;
+        case 'delete':
+            //call delete function
+            $eventId = htmlspecialchars(filter_input(INPUT_POST, 'eventId'));
+            delete_event($eventId);
+            $events = displayEvents($userId);
+            include 'views/events.php';
+            break;
         default: 
+            $events = displayEvents($userId);
             include 'views/events.php';
             break;
     }

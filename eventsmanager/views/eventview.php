@@ -31,50 +31,11 @@ if (!isset($_SESSION['loggedin'])) {
             <p>Days until your event!</p>
             <div class='notes'>
                 <h3>Notes about <?php echo $eventName; ?></h3>
-                <table>
-                    <tr>
-                        <th>Title</th>
-                        <th>Note</th>
-                        <th>Date</th>
-                    </tr>
-                    <?php foreach ($notes as $note) : ?>
-                        <tr>
-                            <td>
-                                <?php echo $note['title'];?>
-                            </td>
-                            <td>
-                                <?php echo $note['note'];?>
-                            </td>
-                            <td>
-                                <?php echo $note['date'];?>
-                            </td>
-                        </tr>
-                        <?php endforeach; ?>
-                </table>
+                <iframe width="100%" height="300px" src="<?php echo $notesrc;?>" name="notes_iframe"></iframe>
             </div>
             <div class='notes'>
                 <h3>Tasks for <?php echo $eventName; ?></h3>
-                <table>
-                    <tr>
-                        <th>Task</th>
-                        <th>Date</th>
-                    </tr>
-                    <form>
-                        <?php foreach ($tasks as $task) : ?>
-                            <tr>
-                                <td>
-                                    <input type='checkbox' <?php if ($task[ 'completed']==1 ) {echo 'checked';} ?> name='task' value='
-                                    <?php echo $task['id']; ?>'>
-                                        <?php echo $task['task']; ?>
-                                            <br>
-                                </td>
-                                <td>
-                                    <?php echo $task['date']; ?>
-                                </td>
-                            </tr>
-                            <?php endforeach; ?>
-                    </form>
-                </table>
+                <iframe width="100%" height="300px" src="<?php echo $tasksrc;?>" name="tasks_iframe"></iframe>
             </div>
         </main>
         <?php include "../modules/footer.html"; ?>

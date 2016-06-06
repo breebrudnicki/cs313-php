@@ -7,7 +7,6 @@ if (!isset($_SESSION['loggedin'])) {
 }
 //grab their name from the session
 $name = $_SESSION['firstName'];
-$newEvent = "";
 ?>
     <!DOCTYPE html>
     <html>
@@ -32,7 +31,7 @@ $newEvent = "";
                 echo "<p class='error'> $error </p>";
             }
             ?>
-                <form action="events.php" method="get">
+                <form action="eventhandle.php" method="get">
                     <fieldset>
                         <label for="event">Event</label>
                         <br>
@@ -50,6 +49,7 @@ $newEvent = "";
                         <br>
                         <label for="date">Date</label>
                         <input type="date" name="date" id="date">
+                        <input type="hidden" name="new" value="new">
                         <label>&nbsp;</label>
                         <input type="submit" name="button" value="create">
                     </fieldset>

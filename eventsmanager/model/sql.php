@@ -1,5 +1,5 @@
 <?php
-require_once 'model/database.php'; //most recent chang model/database instead of just database
+require_once 'model/database.php';
 $db = loadDatabase(); 
 //modular functions
 
@@ -105,4 +105,141 @@ function addEvent($eventName, $description, $date, $userId) {
     $insertId = $db->lastInsertId();
     $statement->closeCursor();
     return $insertId;
+}
+
+//function to delete an event
+function delete_event($eventId) {
+    global $db;
+    $query = 'DELETE FROM events
+              WHERE id = :eventId';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':eventId', $eventId);
+    $statement->execute();
+    $statement->closeCursor();
+}
+
+// add tasks
+function add_tasks($eventId, $task, $description, $date) {
+    global $db;
+    $query = "INSERT INTO tasks
+          (eventId, task, description, completed, date)
+          VALUES
+          (:eventId, :task, :description, :completed, :date)";
+    $statement = $db->prepare($query);
+    $statement->bindValue(':eventId', $eventId);
+    $statement->bindValue(':task', $task);
+    $statement->bindValue(':description', $description);
+    $statement->bindValue(':completed', '0');
+    $statement->bindValue(':date', $date);
+    $statement->execute();
+    //$result = $statement->rowCount(); 
+    $insertId = $db->lastInsertId();
+    $statement->closeCursor();
+    return $insertId;
+}
+//delete tasks
+function delete_task($taskId) {
+    global $db;
+    $query = 'DELETE FROM tasks
+              WHERE id = :taskId';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':taskId', $taskId);
+    $statement->execute();
+    $statement->closeCursor();
+}
+//add notes
+function add_notes($eventId, $title, $note, $date) {
+    global $db;
+    $query = "INSERT INTO notes
+          (eventId, title, note, date)
+          VALUES
+          (:eventId, :title, :note, :date)";
+    $statement = $db->prepare($query);
+    $statement->bindValue(':eventId', $eventId);
+    $statement->bindValue(':title', $title);
+    $statement->bindValue(':note', $note);
+    $statement->bindValue(':date', $date);
+    $statement->execute();
+    //$result = $statement->rowCount(); 
+    $insertId = $db->lastInsertId();
+    $statement->closeCursor();
+    return $insertId;
+}
+//delete notes
+function delete_note($noteId) {
+    global $db;
+    $query = 'DELETE FROM notes
+              WHERE id = :noteId';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':noteId', $noteId);
+    $statement->execute();
+    $statement->closeCursor();
+}
+//update events
+function update_events($eventName, $description, $date, $eventId) {
+    global $db;
+    $query = "UPDATE events
+              SET
+                eventName = :eventName,
+                description = :description,
+                date = :date
+              WHERE
+                id = :eventId";
+    $statement = $db->prepare($query);
+    $statement->bindValue(':eventName', $eventName);
+    $statement->bindValue(':description', $description);
+    $statement->bindValue(':date', $date);
+    $statement->bindValue(':eventId', $eventId);
+    $statement->execute();
+    $statement->closeCursor();
+}
+//update notes
+function update_notes($title, $note, $date, $noteId) {
+    global $db;
+    $query = "UPDATE notes
+              SET
+                title = :title,
+                note = :note,
+                date = :date
+              WHERE
+                id = :noteId";
+    $statement = $db->prepare($query);
+    $statement->bindValue(':title', $title);
+    $statement->bindValue(':note', $note);
+    $statement->bindValue(':date', $date);
+    $statement->bindValue(':noteId', $noteId);
+    $statement->execute();
+    $statement->closeCursor();
+}
+//update tasks
+function update_tasks($task, $description, $date, $taskId) {
+    global $db;
+    $query = "UPDATE tasks
+              SET
+                task = :task,
+                description = :description,
+                date = :date
+              WHERE
+                id = :taskId";
+    $statement = $db->prepare($query);
+    $statement->bindValue(':task', $task);
+    $statement->bindValue(':description', $description);
+    $statement->bindValue(':date', $date);
+    $statement->bindValue(':taskId', $taskId);
+    $statement->execute();
+    $statement->closeCursor();
+}
+//mark task as completed
+function complete_task($completed, $taskId) {
+    global $db;
+    $query = "UPDATE tasks
+              SET
+                completed = :completed
+              WHERE
+                id = :taskId";
+    $statement = $db->prepare($query);
+    $statement->bindValue(':completed', $completed);
+    $statement->bindValue(':taskId', $taskId);
+    $statement->execute();
+    $statement->closeCursor();
 }

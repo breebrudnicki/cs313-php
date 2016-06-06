@@ -57,12 +57,17 @@ $name = $_SESSION['firstName'];
                                     <?php echo $event['date']; ?>
                                 </td>
                                 <td>
-                                    <form action='events.php?id=<?php echo $event[' id '];?>' method='get'>
+                                    <form action='eventhandle.php?id=<?php echo $event[' id '];?>' method='get'>
                                         <input type='hidden' name='eventId' value='<?php echo $event[' id '];?>'>
-                                        <input type='submit' name='<?php echo $event[' id '];?>' value='view event'>
+                                        <input type='submit' name='<?php echo $event[' id '];?>' value='edit note'>
                                     </form>
                                 </td>
-                                <td>Delete Button</td>
+                                <td>
+                                    <form action='index.php' method='post'>
+                                        <input type='hidden' name='eventId' value='<?php echo $event[' id '];?>'>
+                                        <input type='submit' name='button' value='delete'>
+                                    </form>
+                                </td>
                             </tr>
                             <?php endforeach; ?>
                     </table>
