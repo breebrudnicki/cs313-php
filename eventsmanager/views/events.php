@@ -59,7 +59,7 @@ $name = $_SESSION['firstName'];
                                 <td>
                                     <form action='eventhandle.php?id=<?php echo $event[' id '];?>' method='get'>
                                         <input type='hidden' name='eventId' value='<?php echo $event[' id '];?>'>
-                                        <input type='submit' name='<?php echo $event[' id '];?>' value='edit note'>
+                                        <input type='submit' name='<?php echo $event[' id '];?>' value='view event'>
                                     </form>
                                 </td>
                                 <td>
