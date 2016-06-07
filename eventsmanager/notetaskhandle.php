@@ -49,10 +49,13 @@ error_reporting(E_ALL);
          break;
      case "update task":
          //grab all necessary information
+         $eventId = htmlspecialchars(filter_input(INPUT_POST, 'eventId'));
          $date = htmlspecialchars(filter_input(INPUT_POST, 'date'));
          $description = htmlspecialchars(filter_input(INPUT_POST, 'description'));
          $task = htmlspecialchars(filter_input(INPUT_POST, 'task'));
          $taskId = htmlspecialchars(filter_input(INPUT_POST, 'taskId'));
+         //update task
+         update_tasks($task, $description, $date, $taskId);
          //redirect to the task control page
          header("Location: taskscontrol.php?id=$eventId");
          break;

@@ -11,6 +11,24 @@ if (!isset($_SESSION['loggedin'])) {
     //redirect to the login page
     header('Location: index.php');
 } else {
+    if (filter_input(INPUT_GET, 'button')) {
+        $button = filter_input(INPUT_GET, 'button');
+    } elseif (filter_input(INPUT_POST, 'button')){
+        $button = filter_input(INPUT_POST, 'button');
+    } else {
+        $button = "";
+    }
+    switch ($button) {
+        case "edit this event":
+            //get $event, $description, $date, $eventId
+            $event = htmlspecialchars(filter_input(INPUT_POST, 'event'));
+            $description = htmlspecialchars(filter_input(INPUT_POST, 'description'));
+            $date = htmlspecialchars(filter_input(INPUT_POST, 'date'));
+            $eventId = htmlspecialchars(filter_input(INPUT_POST, 'eventId'));
+            $action = "edit";
+            include "views/createevent.php";
+            break;
+        default :
         $eventId = htmlspecialchars(filter_input(INPUT_GET, 'eventId'));
         //query to get all information about that specific event
         $event = getEvents($eventId);
@@ -36,5 +54,7 @@ if (!isset($_SESSION['loggedin'])) {
         $notesrc = "notescontrol.php?id=$eventId";
         $tasksrc = "taskscontrol.php?id=$eventId";
         include 'views/eventview.php';
+        break;
+}
 }
 

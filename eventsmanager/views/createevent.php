@@ -22,7 +22,12 @@ $name = $_SESSION['firstName'];
         <?php include "../modules/nav.php";?>
         </header>
         <main>
-            <h1>Add New Event</h1>
+            <h1><?php if ($action == "add") { 
+                echo "Add New"; 
+            } elseif ($action == "edit") {
+                echo "Edit";
+            }
+            ?> Event</h1>
             <?php
             if (isset($error)) {
                 echo "<p class='error'> $error </p>";
@@ -31,7 +36,7 @@ $name = $_SESSION['firstName'];
             <form action="eventhandle.php" method="get">
                 <fieldset>
                     <label for="event">Event</label> <br>
-                    <input type="text" name="event" id="event" size="100" required<?php
+                    <input type="text" name="event" id="event" size="100" required <?php
                     if (isset($event)) {
                         echo "value='$event'";
                     }
@@ -43,10 +48,20 @@ $name = $_SESSION['firstName'];
                     }
                     ?></textarea><br>
                     <label for="date">Date</label>
-                    <input type="date" name="date" id="date">
-                    <input type ="hidden" name="new" value="new">
-                    <label>&nbsp;</label>
-                    <input type="submit" name="button" value="create">
+                    <input type="date" name="date" id="date" <?php if (isset($date)) {
+                        echo "value='$date'";
+                    }?>>
+                    <?php if ($action == "add") {
+                        echo "<input type ='hidden' name='new' value='new'>";
+                        echo "<label>&nbsp;</label>";
+                        echo "<input type='submit' name='button' value='create'>";
+                    } else {
+                        echo "<input type ='hidden' name='edit' value='edit'>";
+                        echo "<input type ='hidden' name='eventId' value='$eventId'>";
+                        echo "<label>&nbsp;</label>";
+                        echo "<input type='submit' name='button' value='update'>";
+                    }?>
+                    
                 </fieldset>
             </form>
         </main>

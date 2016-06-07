@@ -24,6 +24,7 @@
                         <th>Task</th>
                         <th>Description</th>
                         <th>Date</th>
+                        <th>&nbsp;</th>
                     </tr>
                 <form>
                     <?php foreach ($tasks as $task) : ?>
@@ -39,6 +40,14 @@
                         <td><?php echo $task['task']; ?></td>
                         <td><?php echo $task['description'];?></td>
                         <td><?php echo $task['date']; ?></td>
+                        <td><form action="<?php echo "taskscontrol.php?id=$eventId"; ?>" method='post'>
+                        <input type='hidden' name='eventId' value='<?php echo $eventId; ?>'>
+                        <input type="hidden" name="task" value="<?php echo $task['task'];?>">
+                        <input type="hidden" name="description" value="<?php echo $task['description'];?>">
+                        <input type="hidden" name="date" value="<?php echo $task['date'];?>">
+                        <input type='hidden' name='taskId' value='<?php echo $task['id'];?>'>
+                        <input type='submit' name='button' value='edit task'>
+                    </form></td>
                     </tr>
                     <?php endforeach; ?>
                     <?php foreach ($completedtasks as $complete) : ?>
@@ -51,9 +60,17 @@
                                 <input type="submit" name="incomplete" value="<?php echo '&#10003;';?>">
                                 </fieldset>
                             </form></td>
-                        <td><?php echo $complete['task']; ?></td>
+                            <td><?php echo $complete['task']; ?></td>
                         <td><?php echo $complete['description'];?></td>
                         <td><?php echo $complete['date']; ?></td>
+                        <td><form action="<?php echo "taskscontrol.php?id=$eventId"; ?>" method='post'>
+                        <input type='hidden' name='eventId' value='<?php echo $eventId; ?>'>
+                        <input type="hidden" name="task" value="<?php echo $complete['task'];?>">
+                        <input type="hidden" name="description" value="<?php echo $complete['description'];?>">
+                        <input type="hidden" name="date" value="<?php echo $complete['date'];?>">
+                        <input type='hidden' name='taskId' value='<?php echo $complete['id'];?>'>
+                        <input type='submit' name='button' value='edit task'>
+                    </form></td>
                     </tr>
                     <?php endforeach; ?>
                 </form>

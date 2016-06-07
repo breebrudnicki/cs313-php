@@ -20,6 +20,7 @@ if (isset($_SESSION['loggedin'])) {
     $userId = $_SESSION['userId'];
     switch ($button) {
         case 'create event':
+            $action = "add";
             $events = displayEvents($userId);
             include 'views/createevent.php';
             exit;

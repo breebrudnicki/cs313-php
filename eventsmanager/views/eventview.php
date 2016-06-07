@@ -20,6 +20,16 @@ if (!isset($_SESSION['loggedin'])) {
         </header>
         <main>
             <h2><?php echo $eventName; ?></h2>
+            <form action="events.php" method="post">
+                <fieldset>
+                    <input type='hidden' name='event' value='<?php echo $eventName;?>'>
+                    <input type='hidden' name='description' value='<?php echo $description;?>'>
+                    <input type='hidden' name='date' value='<?php echo $date;?>'>
+                    <input type="hidden" name="eventId" value="<?php echo $eventId; ?>">
+                    <label>&nbsp;</label>
+                    <input type="submit" name="button" value="edit this event">
+                </fieldset>
+            </form>
             <p><?php echo $description; ?></p>
             <h2><?php echo $daysleft; ?></h2>
             <p>Days until your event!</p>

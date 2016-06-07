@@ -10,7 +10,14 @@ if ((filter_input(INPUT_GET, 'new'))){
         //query database to add the event and return event id
         $eventId = addEvent($eventName, $description, $date, $userId);
     
-} else {
+} elseif ((filter_input(INPUT_GET, 'edit'))) {
+    $eventName = htmlspecialchars(filter_input(INPUT_GET, 'event'));
+    $description = htmlspecialchars(filter_input(INPUT_GET, 'description'));
+    $date = htmlspecialchars(filter_input(INPUT_GET, 'date'));
+    $eventId = htmlspecialchars(filter_input(INPUT_GET, 'eventId'));
+    //update event
+    update_events($eventName, $description, $date, $eventId);
+}else {
         $eventId = htmlspecialchars(filter_input(INPUT_GET, 'eventId'));
 }
 //$newEvent = htmlspecialchars(filter_input(INPUT_GET, 'new'));
