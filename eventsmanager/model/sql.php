@@ -60,11 +60,27 @@ function getEvents($eventId) {
     return $events;
 }
 
-//function to grab tasks
+//function to grab tasks (that are  not completed)
 function getTasks($eventId) {
     global $db;
     $query = "SELECT * FROM tasks
               WHERE eventId = :eventId
+              AND completed = '0'
+              ORDER BY date ASC";
+    $stmt = $db->prepare($query);
+    $stmt->bindValue(':eventId', $eventId);
+    $stmt->execute();
+    $tasks = $stmt->fetchAll();
+    $stmt->closeCursor();
+    return $tasks;
+}
+
+//function to grab tasks (that are completed)
+function getCompleteTasks($eventId) {
+    global $db;
+    $query = "SELECT * FROM tasks
+              WHERE eventId = :eventId
+              AND completed = '1'
               ORDER BY date ASC";
     $stmt = $db->prepare($query);
     $stmt->bindValue(':eventId', $eventId);
