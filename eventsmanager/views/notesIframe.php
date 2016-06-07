@@ -10,7 +10,7 @@
                 <form action="notescontrol.php" method="post">
                 <fieldset>
                     <label>&nbsp;</label>
-                    <input type="submit" name="button" value="add new task">
+                    <input type="submit" name="button" value="add new note">
                 </fieldset>
                 </form>
                 <?php else : ?>
