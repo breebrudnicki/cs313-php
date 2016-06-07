@@ -37,3 +37,4 @@ if (!isset($_SESSION['loggedin'])) {
         $tasksrc = "taskscontrol.php?id=$eventId";
         include 'views/eventview.php';
 }
+

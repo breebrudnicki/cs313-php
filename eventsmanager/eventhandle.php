@@ -17,3 +17,5 @@ if ((filter_input(INPUT_GET, 'new'))){
 
 //redirect to events.php
 header("Location: events.php?eventId=$eventId");
+
+

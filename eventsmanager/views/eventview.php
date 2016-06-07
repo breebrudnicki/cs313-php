@@ -5,28 +5,22 @@ if (!isset($_SESSION['loggedin'])) {
     header('Location: index.php');
 }
 ?>
-    <!DOCTYPE html>
-    <html>
-
+<!DOCTYPE html>
+<html>
     <head>
-        <title>
-            <?php echo $eventName?>
-        </title>
+        <title><?php echo $eventName?></title>
         <link rel="stylesheet" type="text/css" href="../styles.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="UTF-8">
     </head>
-
     <body>
         <header>
-            <a href="."><img src="../images/headerimg.png" alt="Bree Carrick"></a>
-            <?php include "../modules/nav.php"?>
+        <a href="."><img src="../images/headerimg.png" alt="Bree Carrick"></a>
+        <?php include "../modules/nav.php"?>
         </header>
         <main>
             <h2><?php echo $eventName; ?></h2>
-            <p>
-                <?php echo $description; ?>
-            </p>
+            <p><?php echo $description; ?></p>
             <h2><?php echo $daysleft; ?></h2>
             <p>Days until your event!</p>
             <div class='notes'>
@@ -40,5 +34,4 @@ if (!isset($_SESSION['loggedin'])) {
         </main>
         <?php include "../modules/footer.html"; ?>
     </body>
-
-    </html>
+</html>
