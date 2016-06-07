@@ -243,3 +243,24 @@ function complete_task($completed, $taskId) {
     $statement->execute();
     $statement->closeCursor();
 }
+
+//delete tasks with eventId
+function delete_notefromevent($eventId) {
+    global $db;
+    $query = 'DELETE FROM notes
+              WHERE eventId = :eventId';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':eventId', $eventId);
+    $statement->execute();
+    $statement->closeCursor();
+}
+//delete notes with eventId
+function delete_taskfromevent($eventId) {
+    global $db;
+    $query = 'DELETE FROM tasks
+              WHERE eventId = :eventId';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':eventId', $eventId);
+    $statement->execute();
+    $statement->closeCursor();
+}

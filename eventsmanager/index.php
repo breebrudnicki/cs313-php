@@ -27,6 +27,8 @@ if (isset($_SESSION['loggedin'])) {
         case 'delete':
             //call delete function
             $eventId = htmlspecialchars(filter_input(INPUT_POST, 'eventId'));
+            delete_notefromevent($eventId);
+            delete_taskfromevent($eventId);
             delete_event($eventId);
             $events = displayEvents($userId);
             include 'views/events.php';
