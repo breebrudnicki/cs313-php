@@ -13,6 +13,7 @@ $name = $_SESSION['firstName'];
     <head>
         <title><?php echo $name?>'s Events Manager</title>
         <link rel="stylesheet" type="text/css" href="../styles.css">
+        <link rel="stylesheet" type="text/css" href="../events.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="UTF-8">
     </head>
@@ -21,13 +22,12 @@ $name = $_SESSION['firstName'];
         <a href="."><img src="../images/headerimg.png" alt="Bree Carrick"></a>
         <?php include "../modules/nav.php"?>
         </header>
-        <main>
-        <h2>Hi, <?php echo $name;?>! Welcome to your events manager.</h2>
+        <main class="eventview">
+        <h2>Hi, <?php echo $name;?>! Welcome to your Events Manager.</h2>
             <?php if ($events == null) : ?>
         <p>It doesn't look like you have any events, why don't you create one?</p>
             <form action="index.php" method="get">
                 <fieldset>
-                    <label>&nbsp;</label>
                     <input type="submit" name="button" value="create event">
                 </fieldset>
             </form>
@@ -40,10 +40,10 @@ $name = $_SESSION['firstName'];
         </form>
         <table>
             <tr>
-                <th>Event</th>
-                <th>Date</th>
-                <th>&nbsp;</th>
-                <th>&nbsp;</th>
+                <th class="event">Event</th>
+                <th class="date">Date</th>
+                <th class="buttoncol">&nbsp;</th>
+                <th class="buttoncol">&nbsp;</th>
             </tr>
             <?php foreach ($events as $event) : ?>
             <tr>
@@ -51,11 +51,11 @@ $name = $_SESSION['firstName'];
                 <td><?php echo $event['date']; ?></td>
                 <td><form action='eventhandle.php?id=<?php echo $event['id'];?>' method='get'>
                         <input type='hidden' name='eventId' value='<?php echo $event['id'];?>'>
-                        <input type='submit' name='<?php echo $event['id'];?>' value='view event'>
+                        <input type='submit' name='<?php echo $event['id'];?>' value='view event' class="tablebutton">
                     </form></td>
                 <td><form action='index.php' method='post'>
                         <input type='hidden' name='eventId' value='<?php echo $event['id'];?>'>
-                        <input type='submit' name='button' value='delete'>
+                        <input type='submit' name='button' value='delete' class="tablebutton">
                     </form></td>
             </tr>
             <?php endforeach; ?>

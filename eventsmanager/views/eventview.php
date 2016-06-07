@@ -10,6 +10,7 @@ if (!isset($_SESSION['loggedin'])) {
     <head>
         <title><?php echo $eventName?></title>
         <link rel="stylesheet" type="text/css" href="../styles.css">
+        <link rel="stylesheet" type="text/css" href="../events.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="UTF-8">
     </head>
@@ -19,25 +20,25 @@ if (!isset($_SESSION['loggedin'])) {
         <?php include "../modules/nav.php"?>
         </header>
         <main>
-            <h2><?php echo $eventName; ?></h2>
+            <div class="countdown"> 
+            <h2><?php echo $daysleft; ?></h2>
+            <p>Days until <?php echo $eventName; ?>!</p>
+            </div>
+            <div class="description"><p><?php echo $description; ?></p>
             <form action="events.php" method="post">
-                <fieldset>
+                <fieldset class="iframebutton">
                     <input type='hidden' name='event' value='<?php echo $eventName;?>'>
                     <input type='hidden' name='description' value='<?php echo $description;?>'>
                     <input type='hidden' name='date' value='<?php echo $date;?>'>
                     <input type="hidden" name="eventId" value="<?php echo $eventId; ?>">
-                    <label>&nbsp;</label>
                     <input type="submit" name="button" value="edit this event">
                 </fieldset>
-            </form>
-            <p><?php echo $description; ?></p>
-            <h2><?php echo $daysleft; ?></h2>
-            <p>Days until your event!</p>
-            <div class='notes'>
-                <h3>Notes about <?php echo $eventName; ?></h3>
+            </form></div>
+            <div>
+                <h3>Notes for <?php echo $eventName; ?></h3>
                 <iframe width="100%" height="300px" src="<?php echo $notesrc;?>" name="notes_iframe"></iframe>
             </div>
-            <div class='notes'>
+            <div>
                 <h3>Tasks for <?php echo $eventName; ?></h3>
                 <iframe width="100%" height="300px" src="<?php echo $tasksrc;?>" name="tasks_iframe"></iframe>
             </div>

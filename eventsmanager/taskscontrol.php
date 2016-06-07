@@ -69,7 +69,6 @@ switch ($button) {
         include "views/tasksIframe.php";
         break;
     default:
-        echo "default";
         $eventId = htmlspecialchars(filter_input(INPUT_GET, 'id'));
         $tasks = getTasks($eventId);
         $completedtasks = getCompleteTasks($eventId);

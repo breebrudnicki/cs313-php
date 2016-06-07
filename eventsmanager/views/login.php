@@ -17,60 +17,50 @@ session_start();
             <?php include "../modules/nav.php"?>
         </header>
         <main>
-            <h2>Hi, Welcome to your events manager!</h2>
+            <h2>Hi there, Welcome to Events Manager!</h2>
             <p>For class purposes the email is "cs313@byui.edu" and the password is "Password1!", but feel free to make your own account. :)</p>
-            <div>
-                <h3>Sign into an existing account.</h3>
+            <div class="col">
+                
+                    <form action="index.php" method="post" class="loginform">
+              
+                        <fieldset>
+                            <h3 class="login">Login</h3>
                 <?php
                 if(isset($loginmessage)) {
                    echo "<p class='error'> $loginmessage </p>";
                     }
                 ?>
-                    <form action="index.php" method="post">
-                        <fieldset>
-                            <label for="email">Email</label>
+                            <input type="email" name="email" id="email" required placeholder="email">
                             <br>
-                            <input type="email" name="email" id="email" required placeholder="email@domain.com">
-                            <br>
-                            <label>Password</label>
-                            <br>
-                            <input type="password" name="password" id="password" required>
+                            <input type="password" name="password" id="password" required placeholder="password">
                             <br>
                             <br>
 
                             <label>&nbsp;</label>
-                            <input class="button" type="submit" name="button" value="login">
+                            <input type="submit" name="button" value="login">
                         </fieldset>
                     </form>
             </div>
-            <div>
-                <h3>Create a new account.</h3>
+            <div class="col">
+                    <form action="index.php" method="post">
+                        <fieldset>
+                            <h3 class="login">Create an Account</h3>
                 <?php if(isset($createmessage)) {
                    echo "<p class='error'> $createmessage </p>";
                     }
                 ?>
-                    <form action="index.php" method="post">
-                        <fieldset>
-                            <label for='firstName'>First Name</label>
+                            <input type='text' name='firstName' id='firstName' required placeholder="First Name" value="<?php if (isset($firstName)) {echo $firstName;}?>">
                             <br>
-                            <input type='text' name='firstName' id='firstName' required value="<?php if (isset($firstName)) {echo $firstName;}?>">
+                            <input type='text' name='lastName' id='lastName' required placeholder="Last Name" value="<?php if (isset($lastName)) {echo $lastName;}?>">
                             <br>
-                            <label for='lastName'>Last Name</label>
+                            <input type="email" name="email" id="email" required placeholder="email" value="<?php if (isset($email)) {echo $email;}?>">
                             <br>
-                            <input type='text' name='lastName' id='lastName' required value="<?php if (isset($lastName)) {echo $lastName;}?>">
-                            <br>
-                            <label for="email">Email</label>
-                            <br>
-                            <input type="email" name="email" id="email" required placeholder="email@domain.com" value="<?php if (isset($email)) {echo $email;}?>">
-                            <br>
-                            <label>Create a Password</label>
-                            <br>
-                            <input type="password" name="password" id="password" required>
+                            <input type="password" name="password" placeholder=" create a password" id="password" required>
                             <br>
                             <br>
 
                             <label>&nbsp;</label>
-                            <input class="button" type="submit" name="button" value="create new account">
+                            <input type="submit" name="button" value="create new account">
                         </fieldset>
                     </form>
             </div>

@@ -1,0 +1,132 @@
+input[type=submit] {
+    font-size: 1em;
+    background-color: #00a651;
+    color: white;
+    padding: 14px 20px;
+    margin: 0px 0px;
+    border: none;
+    border-radius: 4px;
+    width: 100%;
+    cursor: pointer;
+}
+fieldset {
+    margin-top: 30px;
+    height: inherit;
+    border: none;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0px 0px 0px #fff;
+}
+
+table {
+    margin-top: 30px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 0px;
+}
+
+tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+th {
+    font-family: helvetica, sans-serif;
+    font-size: 1.5em;
+    font-weight: 100;
+    background-color: #27aae1;
+    color: white;
+}
+
+th.event {
+    width: 50%;
+}
+th.date {
+    width: 16%;
+}
+th.buttoncol {
+    width: 17%;
+}
+input.tablebutton {
+    border-radius: 0px;
+    background-color: #f2f2f2;
+    color: #555;
+    font-family: georgia, garamond, serif;
+}
+input.tablebutton:hover {
+    background-color: #cccccc;
+}
+td {
+    color: #555;
+}
+
+div.description {
+    max-width: 400px;
+    margin: auto;
+    color: red;
+}
+
+.countdown {
+    max-width: 400px;
+    margin: auto;
+}
+
+.countdown > h2 {
+    font-size: 8em;
+    font-weight: 100;
+}
+
+.countdown > p {
+    text-align: center;
+}
+
+iframe {
+    height: 400px;
+    border: none;
+    max-height: 400px;
+}
+
+fieldset.iframebutton {
+    margin: 0px;
+    padding: 0px;
+}
+
+tr.iframetable {
+    font-size: 1em;
+}
+
+th.title, th.task{
+    width: 15%;
+}
+th.note, th.description {
+    width: 50%;
+}
+th.date {
+    width: 15%;
+}
+th.iframetablebutton {
+    width: 10%
+}
+th.check {
+    width: 6%;
+}
+
+input.iframetablebutton {
+    background-color: #00a651;
+    color: white;
+    padding: 5px 5px;
+    margin: 0px 0px;
+    border: none;
+    border-radius: 0px;
+    width: 100%;
+    cursor: pointer;
+}
+
+input.check, fieldset.check {
+    padding: 0px;
+    margin: 1.5px;
+    width: 15px;
+}
