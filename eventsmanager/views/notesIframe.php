@@ -42,7 +42,7 @@
                         <input type='submit' name='button' value='edit note'>
                     </form></td>
                         <td><form action="<?php echo "notescontrol.php?id=$eventId"; ?>" method='post'>
-                        <input type="hidden" name="eventId" value="<?php echo $eventId; ?>"
+                        <input type="hidden" name="eventId" value="<?php echo $eventId; ?>">
                         <input type='hidden' name='noteId' value='<?php echo $note['id'];?>'>
                         <input type='submit' name='button' value='delete'>
                     </form></td>
